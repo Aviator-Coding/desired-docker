@@ -1,0 +1,9 @@
+---
+daemon:
+#  build: .
+  image: quay.io/kwiksand/desired:latest
+  ports:
+  - "9918:9918"
+  - "9919:9919"
+  volumes:
+  - /media/crypto/desire:/home/desire/.desire
