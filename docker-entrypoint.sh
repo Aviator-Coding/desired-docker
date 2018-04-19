@@ -30,6 +30,7 @@ if [ -z "$1" ] || [ "$1" == "desired" ] || [ "$(echo "$1" | cut -c1)" == "-" ]; 
   fi
 
   exec gosu desire "$@"
+  exec gosu desire /usr/bin/sentinel
 else
   echo "This entrypoint will only execute desired, desire-cli and desire-tx"
 fi

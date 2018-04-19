@@ -38,12 +38,14 @@ USER root
 
 COPY docker-entrypoint.sh /entrypoint.sh
 
-RUN chmod 777 /entrypoint.sh && \
+RUN wget -O /usr/bin/sentinel https://github.com/ZonnCash/sentinel/releases/download/v1.1.0-win64/sentinel-lin64 && \
+    chmod 777 /entrypoint.sh && \
     echo "\n# Some aliases to make the desire clients/tools easier to access\nalias desired='/usr/bin/desired -conf=/home/desire/.desire/desire.conf'\nalias desired='/usr/bin/desired -conf=/home/desire/.desire/desire.conf'\nalias desirecli='/usr/bin/desire-cli -conf=/home/desire/.desire/desire.conf'\n\n[ ! -z \"\$TERM\" -a -r /etc/motd ] && cat /etc/motd" >> /etc/bash.bashrc && \
     echo "desire (SYNX) Cryptocoin Daemon\n\nUsage:\n desire-cli help - List help options\n desire-cli listtransactions - List Transactions\n\n" > /etc/motd && \
     chmod 755 /home/desire/bin/desired && \
     chmod 755 /home/desire/bin/desire-cli && \
     chmod 755 /home/desire/bin/desire-tx && \
+    chmod 755 /usr/bin/sentinel && \
     mv /home/desire/bin/desired /usr/bin/desired && \
     mv /home/desire/bin/desire-cli /usr/bin/desire-cli && \
     mv /home/desire/bin/desire-tx /usr/bin/desire-tx
