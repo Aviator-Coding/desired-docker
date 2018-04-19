@@ -1,0 +1,15 @@
+server=1
+listen=1
+daemon=0
+staking=1
+logtimestamps=1
+#mnconflock=0
+mnconflock=1
+
+rpcport=9918
+port=9919
+
+rpcuser=DesireRPC
+rpcpassword=g80K9GppO5eVj5YyZh5BywhcgXZtJphMe2EL75dotFg
+rpcallowip=127.0.0.1
+rpcallowip=192.168.0.0/24
