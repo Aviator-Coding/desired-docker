@@ -2,8 +2,12 @@
 daemon:
 #  build: .
   image: quay.io/kwiksand/desired:latest
+  environment:
+  # If this is a masternode host, set MASTERNODE = 1
+  - MASTERNODE=0
   ports:
-  - "9918:9918"
+  - "9998:9998"
   - "9919:9919"
   volumes:
   - /media/crypto/desire:/home/desire/.desire
+#  - ${PWD}/entrypoint.sh:/entrypoint.sh

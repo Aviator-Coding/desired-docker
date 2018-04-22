@@ -29,8 +29,12 @@ if [ -z "$1" ] || [ "$1" == "desired" ] || [ "$(echo "$1" | cut -c1)" == "-" ]; 
     set -- $cmd -datadir="$DESIRE_DATA"
   fi
 
+  if [ -n $MASTERNODE ] && [ "$MASTERNODE" == "1" ]; then
+    echo "$0: This is a masternode, start the sentinel process..."
+    /usr/bin/sentinel --config /home/desire/.desire/desire.conf > /var/log/sentinel.log 2>&1  &
+  fi
+
   exec gosu desire "$@"
-  exec gosu desire /usr/bin/sentinel
 else
   echo "This entrypoint will only execute desired, desire-cli and desire-tx"
 fi
