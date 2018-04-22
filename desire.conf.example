@@ -4,9 +4,8 @@ daemon=0
 staking=1
 logtimestamps=1
 #mnconflock=0
-mnconflock=1
 
-rpcport=9918
+rpcport=9998
 port=9919
 
 rpcuser=DesireRPC
