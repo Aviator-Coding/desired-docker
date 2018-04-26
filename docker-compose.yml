@@ -4,7 +4,7 @@ daemon:
   image: quay.io/kwiksand/desired:latest
   environment:
   # If this is a masternode host, set MASTERNODE = 1
-  - MASTERNODE=0
+  - MASTERNODE=1
   ports:
   - "9998:9998"
   - "9919:9919"
